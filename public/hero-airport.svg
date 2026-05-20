@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="720" viewBox="0 0 1600 720" role="img" aria-label="Airport runway at sunset">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#6bb7c8"/>
+      <stop offset=".55" stop-color="#315f73"/>
+      <stop offset="1" stop-color="#17202a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="720" fill="url(#sky)"/>
+  <circle cx="1210" cy="178" r="70" fill="#f8c14a" opacity=".9"/>
+  <path d="M0 503h1600v217H0z" fill="#17202a"/>
+  <path d="M720 503h160l166 217H554z" fill="#2d3742"/>
+  <path d="M792 526h18l-8 35h-28zM778 596h48l18 80h-88z" fill="#f8c14a"/>
+  <path d="M0 480c171-42 349-58 535-48 166 9 305 39 489 41 189 3 359-22 576-75v105H0z" fill="#214550" opacity=".82"/>
+  <path d="M380 354h502l250 83H716l-69-24H450z" fill="#eef6f8" opacity=".88"/>
+  <path d="M739 354l91-56 45 3-46 53zM527 354l-105-61 55-3 149 64z" fill="#eef6f8" opacity=".88"/>
+  <path d="M291 430h251M1155 466h278" stroke="#f8c14a" stroke-width="8" stroke-linecap="round" opacity=".75"/>
+</svg>

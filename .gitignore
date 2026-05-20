@@ -1,0 +1,10 @@
+.next
+node_modules
+.env
+.env.local
+.vercel
+*.zip
+coverage
+public/sw.js
+public/workbox-*.js
+public/worker-*.js

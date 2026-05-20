@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="FlightDeck icon">
+  <rect width="512" height="512" rx="112" fill="#145c64"/>
+  <path d="M101 279l298-128c19-8 35 14 22 30l-89 103 49 112c6 14-9 27-22 19l-103-61-75 66c-13 12-32 1-29-17l19-104-70-20z" fill="#f8c14a"/>
+  <path d="M177 301l154-67-117 116-11 58z" fill="#ffffff"/>
+</svg>
