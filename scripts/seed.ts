@@ -99,12 +99,9 @@ async function main() {
   }
 
   for (const flight of flights ?? []) {
-    const { error: deleteError } = await supabase.from("seats").delete().eq("flight_id", flight.id);
-    if (deleteError) {
-      throw deleteError;
-    }
-
-    const { error: seatError } = await supabase.from("seats").insert(seatsForFlight(flight.id));
+    const { error: seatError } = await supabase
+      .from("seats")
+      .upsert(seatsForFlight(flight.id), { onConflict: "flight_id,seat_number" });
     if (seatError) {
       throw seatError;
     }
