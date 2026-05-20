@@ -1,4 +1,4 @@
-create extension if not exists pgcrypto;
+create extension if not exists pgcrypto with schema extensions;
 
 create table if not exists public.flights (
   id uuid primary key default gen_random_uuid(),
@@ -132,7 +132,7 @@ create or replace function public.reserve_seat_and_create_booking(
 returns uuid
 language plpgsql
 security definer
-set search_path = public, auth
+set search_path = public, auth, extensions
 as $$
 declare
   v_user_id uuid := auth.uid();
@@ -158,7 +158,7 @@ begin
     raise exception 'Seat is no longer available';
   end if;
 
-  v_pnr := upper(substr(encode(gen_random_bytes(6), 'hex'), 1, 8));
+  v_pnr := upper(substr(encode(extensions.gen_random_bytes(6), 'hex'), 1, 8));
 
   insert into public.bookings (user_id, flight_id, seat_id, total_price, pnr_code)
   values (v_user_id, p_flight_id, p_seat_id, p_total_price, v_pnr)
@@ -248,11 +248,13 @@ begin
 
   select * into v_old_flight from public.flights where id = v_booking.flight_id;
   select * into v_new_flight from public.flights where id = p_new_flight_id;
+
   if v_new_flight.id is null then
     raise exception 'Selected flight is not available';
   end if;
 
   select * into v_old_seat from public.seats where id = v_booking.seat_id;
+
   if v_old_seat.id is null then
     raise exception 'Current seat was not found';
   end if;
